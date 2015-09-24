@@ -1,0 +1,67 @@
+{
+  "name": "sitterfied-web",
+  "description": "Sitterfied Website",
+  "author": {
+    "name": "Andrew Lewisohn",
+    "email": "@alewisohn",
+    "url": "http://github.com/alewisohn"
+  },
+  "version": "0.1.0",
+  "homepage": "https://github.com/sitterfied/sitterfied-web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sitterfied/sitterfied-web.git"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test",
+    "test:watch": "ember test --serve --port 8380"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "3.3.4",
+    "broccoli-asset-rev": "2.1.2",
+    "compass-mixins": "0.12.3",
+    "ember-cli": "1.13.8",
+    "ember-cli-app-version": "0.5.0",
+    "ember-cli-autoprefixer": "0.4.1",
+    "ember-cli-babel": "5.1.3",
+    "ember-cli-coffeescript": "0.11.0",
+    "ember-cli-dependency-checker": "1.0.1",
+    "ember-cli-deprecation-workflow": "0.1.4",
+    "ember-cli-divshot": "0.1.7",
+    "ember-cli-fixture-loader": "0.0.3",
+    "ember-cli-htmlbars": "0.7.9",
+    "ember-cli-htmlbars-inline-precompile": "0.2.0",
+    "ember-cli-ic-ajax": "0.2.1",
+    "ember-cli-inject-live-reload": "1.3.1",
+    "ember-cli-inline-content": "0.4.0",
+    "ember-cli-pretender": "0.4.0",
+    "ember-cli-qunit": "1.0.0",
+    "ember-cli-release": "0.2.5",
+    "ember-cli-sass": "4.0.1",
+    "ember-cli-simple-auth": "0.8.0",
+    "ember-cli-simple-auth-cookie-store": "0.8.0",
+    "ember-cli-styles-reloader": "0.1.6",
+    "ember-cli-uglify": "1.2.0",
+    "ember-data": "1.13.9",
+    "ember-devtools": "3.2.0",
+    "ember-disable-proxy-controllers": "1.0.0",
+    "ember-export-application-global": "1.0.3",
+    "ember-feature-flags": "2.0",
+    "ember-inline-svg": "0.1.4",
+    "ember-validations": "mutewinter/ember-validations#3f54ba27d4",
+    "express": "^4.13.3",
+    "glob": "^4.5.3",
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-grunticon": "2.2.1",
+    "liquid-fire": "0.21.2",
+    "matchdep": "0.3.0",
+    "morgan": "^1.6.1"
+  }
+}
