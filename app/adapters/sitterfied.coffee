@@ -2,12 +2,14 @@
 `import ApiOptionsMixin from 'sitterfied-web/mixins/api-options'`
 `import logger from 'sitterfied-web/services/logger'`
 
+LOG = logger.loggerFor('application-adapter')
+
 SitterfiedAdapter = DS.RESTAdapter.extend ApiOptionsMixin,
-  analytics: Ember.inject.service()
+  #analytics: Ember.inject.service()
   coalesceFindRequests: true
   updateMethod: 'PATCH'
   # Caution, not part of Ember's public API
-  mergedProperties: ['attributeKey']
+  mergedProperties: ['attributesForKey']
   attributesForKeys:
     # Note: Without this key override, the model stays in isSaving when an
     # error occurs, rather than entering an invalid state as expected. This
@@ -44,8 +46,13 @@ SitterfiedAdapter = DS.RESTAdapter.extend ApiOptionsMixin,
     else
       error
 
+  buildURL: (type, id, snapshot) ->
+    if type.charAt(type.length - 1) != 's'
+      type = type + 's'
+    "#{@get('host')}/#{type}/#{id}/"
+
   fetchGeolocation: ->
-    url = '#{@get("host")}/accounts/_geolocation'
+    url = "#{@get('host')}/accounts/_geolocation"
     @ajax(url, 'GET')
 
 `export default SitterfiedAdapter`

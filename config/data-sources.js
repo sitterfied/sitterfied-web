@@ -1,8 +1,8 @@
 module.exports = {
-  test: {
+  development: {
 	adapter: 'sitterfied',
 	apiOptions: {
-	  host: 'https://test.sitterfied.com'
+	  host: 'http://dev-api.sitterfied.com:8080/api'
 	}
   }
 }

@@ -1,0 +1,27 @@
+// Liquid fire comes with default styles. There are overrides.
+.lf-overlay {
+  top: 0;
+  z-index: $liquid-overlay-z-index;
+  background-color: $OVERLAY_BACKGROUND_COLOR;
+  opacity: 1;
+}
+
+.lm-container {
+  top: 0;
+  z-index: $liquid-modal-z-index;
+  display: block;
+  overflow-y: scroll;
+}
+
+.lf-dialog {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  max-width: none;
+}
+
+// Modal styles in their own module. Liquid modals must stay on top.
+.liquid-modal .modal {
+  z-index: $liquid-modal-z-index;
+}

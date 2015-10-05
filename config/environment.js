@@ -11,7 +11,7 @@ module.exports = function(environment) {
     // https://github.com/ember-cli/ember-export-application-global
     exportApplicationGlobal: false,
     // Disable ember-cli-coffeescript blueprints http://git.io/vIanh
-    coffeeOptions: { blueprints: false },
+    coffeeOptions: { blueprints: true },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,35 +19,29 @@ module.exports = function(environment) {
       }
     },
 
+	/**
+     * Features
+     */
+
+    featureFlags: {
+      // Enable analytics for page and event tracking.
+      analyticsEnabled: false,
+      // When true we send unauthenticated users to the root, unless they hit
+      // /login
+      sendUnauthenticatedToRoot: false,
+      // Log verbose error messages to the console.
+      enableVerboseLogging: false
+	},
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+	  appName: 'Sitterfied',
+	  titlePrefix: '',
+	  adapter: 'sitterfied',
     }
   };
-  console.log(environment);
 
-
-  /*
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-  }
-
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
-
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
-
-    ENV.APP.rootElement = '#ember-testing';
-  }
-  */
   if (environment) {
 	var environmentConfig = require('./environments/' + environment);
 	environmentConfig.config(ENV)

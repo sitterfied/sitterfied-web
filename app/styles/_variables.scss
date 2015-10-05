@@ -1,0 +1,28 @@
+// Gray semi-transparent background used to mask the site
+// behind modals:
+$OVERLAY_BACKGROUND_COLOR: rgba($gray_90, 0.85);
+
+// Common borders and radii:
+$common-border-radius: 4px;
+
+// Common media query breakpoints
+// Based on Twitter Bootstrap breakpoints
+$sf-xsmall: 480px;
+$sf-small: 768px;
+$sf-medium: 992px;
+$sf-large: 1200px;
+$sf-large-ads: 1088px;
+$sf-xlarge: 1400px;
+
+// Height media query breakpoints
+$sf-xshort: 480px;
+
+// Used to loop over screen sizes to make dynamic styles
+$screen-sizes: (xs: $sf-xsmall, sm: $sf-small, md: $sf-medium, lg: $sf-large);
+
+// Stacking order:
+// z-index values, in increments of 100 to allow for future expansion.
+$z-index-base: 100;
+
+$liquid-overlay-z-index:                  17   * $z-index-base;
+$liquid-modal-z-index:                    17.1 * $z-index-base;

@@ -1,0 +1,49 @@
+{{#sitterfied-modal close='closeModal'}}
+<div id="login" class="signup_login_block">
+  <form {{action 'authenticate' on='submit'}}>
+    <p>
+      <img src="/assets/img/logo2.png" alt="Sitterfied" class="logo" />
+    </p>
+	<p>
+      <a href="#" class="facebook_signup_btn">
+        <img src="/assets/img/facebook_login.png" alt="" />
+      </a>
+    </p>
+	<div class="or">
+      <span>Or
+      </span>
+    </div>
+	<ul>
+      {{#if errorMessage}}
+	  <li class="error_text" id="errormessage">
+		<p>incorrect email or password</p>
+	  </li>
+      {{/if}}
+	  <li >
+        <span class="icon_email4">&nbsp;
+        </span>
+        <input id="id_username" maxlength="254" name="username" placeholder="Email" type="text">
+      </li>
+	  <li>
+        <span class="icon_pass">&nbsp;
+        </span>
+        <input id="id_password" name="password" placeholder="Password" type="password">
+      </li>
+      <li>
+      </li>
+	</ul>
+    <p>
+      <!--<a href="#">Forgot your password?</a>-->
+    </p>
+    <p>
+      <input type="hidden" name="next" value="/" />
+      <button id="loginbtn" type="submit" class="button button_edit" disabled={{shouldDisablButton}}>
+		LOG IN
+	  </button>
+    </p>
+  </form>
+  <p>Don’t have an account?
+    {{#link-to "signup"}}Sign up{{/link-to}}
+  </p>
+</div>
+{{/sitterfied-modal}}

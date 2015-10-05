@@ -1,4 +1,4 @@
-var dataSources = require('../data-sources')
+var dataSources = require('../data-sources');
 
 module.exports = {
   config: function(ENV) {
@@ -6,6 +6,7 @@ module.exports = {
 
 	app.name = 'development';
 	app.titlePrefix = '𝕯 ';
+	app.apiOptions = dataSources.development.apiOptions
 
 	// Development has data-source toggle
 	ENV.dataSources = dataSources;

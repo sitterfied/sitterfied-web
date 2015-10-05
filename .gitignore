@@ -16,6 +16,10 @@
 .settings
 .tmproj
 
+# ember-cli
+dist/
+tmp/
+
 # NPM packages folder
 node_modules/
 

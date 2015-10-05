@@ -1,10 +1,55 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var env = process.env.EMBER_ENV;
 
 module.exports = function(defaults) {
+  var isProductionLikeEnvironment = !!env.match(/production|staging/);
+  
   var app = new EmberApp(defaults, {
-    // Add options here
+	minifyCSS: {
+      enabled: isProductionLikeEnvironment
+    },
+
+    minifyJS: {
+      enabled: isProductionLikeEnvironment
+    },
+
+    sourcemaps: {
+      enabled: !isProductionLikeEnvironment,
+      extensions: ['js']
+    },
+
+    wrapInEval: !isProductionLikeEnvironment,
+    tests: !isProductionLikeEnvironment,
+    hinting: !isProductionLikeEnvironment,
+
+	outputPaths: {
+      app: {
+        css: {
+          'app': '/assets/sitterfied-web.css',
+          'font-faces': '/assets/font-faces.css'
+        }
+      }
+    },
+
+    sassOptions: {
+      includePaths: [
+        'node_modules/compass-mixins/lib',
+        'node_modules/bootstrap-sass/assets/stylesheets'
+      ]
+    },
   });
+
+  app.import('bower_components/lodash/lodash.js')
+  app.import('bower_components/moment/moment.js');
+  app.import('bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
+  app.import('bower_components/cookies-js/src/cookies.js');
+  app.import('bower_components/phoneformat/phoneformat.min.js');
+  app.import('bower_components/purl/purl.js');
+
+  app.import('bower_components/select2/dist/js/select2.js');
+  app.import('bower_components/select2/dist/css/select2.css');
+
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

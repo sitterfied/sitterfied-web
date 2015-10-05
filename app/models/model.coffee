@@ -27,4 +27,16 @@ Model = DS.Model.extend
     @set('showAllErrors', false)
     @_super(arguments...)
 
+Model.reopenClass
+  typeKeyFromToString: ->
+    @_typeKeyFromToString or= @toString().split(':')[1].camelize()
+
+  routeName: -> @typeKeyFromToString().dasherize()
+  templateName: -> @typeKeyFromToString().dasherize()
+  cssClass: -> @typeKeyFromToString().dasherize()
+
+  loadAll: (store) ->
+    @all.forEach (rawObject) =>
+      store.push @typeKeyFromToString(), rawObject
+
 `export default Model`
