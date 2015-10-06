@@ -29,7 +29,7 @@ SitterfiedAdapter = DS.RESTAdapter.extend ApiOptionsMixin,
 
     hash
 
-  ajaxError: (xhr) ->
+  isInvalid: (xhr) ->
     error = @_super(xhr)
 
     if xhr and xhr.status is 400

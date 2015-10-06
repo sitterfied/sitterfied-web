@@ -12,6 +12,8 @@ Router.map ->
     @modal 'login-modal', LoginModalComponent.modalOptions()
 
   @route 'home', path: '/home'
+  @route 'privacy', path: '/privacy'
+  @route 'tos', path: '/tos'
     
   # Onboarding Routes
   @route 'signup', path: '/signup'
