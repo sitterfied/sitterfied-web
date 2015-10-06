@@ -55,4 +55,21 @@ SitterfiedAdapter = DS.RESTAdapter.extend ApiOptionsMixin,
     url = "#{@get('host')}/accounts/_geolocation"
     @ajax(url, 'GET')
 
+  open: (authentication) ->
+    debugger
+    authorizationCode = authentication.authorizationCode
+    return new Ember.RSVP.Promise((resolve, reject) ->
+      Ember.$.ajax
+        url: 'api/session',
+        data: { 'facebook-auth-code': authorizationCode },
+        dataType: 'json',
+        success: Ember.run.bind(null, resolve),
+        error: Ember.run.bind(null, reject)
+    ).then((user) ->
+      # The returned object is merged onto the session (basically). Here
+      # you may also want to persist the new session with cookies or via
+      # localStorage.
+      return currentUser: user
+    )
+
 `export default SitterfiedAdapter`

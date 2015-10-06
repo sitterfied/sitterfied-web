@@ -23,6 +23,7 @@
     "test:watch": "ember test --serve --port 8380"
   },
   "devDependencies": {
+    "addon": "0.0.0",
     "bootstrap-sass": "3.3.4",
     "broccoli-asset-rev": "2.1.2",
     "compass-mixins": "0.12.3",
@@ -46,6 +47,8 @@
     "ember-cli-sass": "4.0.1",
     "ember-cli-simple-auth": "0.8.0",
     "ember-cli-simple-auth-cookie-store": "0.8.0",
+    "ember-cli-simple-auth-oauth2": "0.8.0",
+    "ember-cli-simple-auth-torii": "0.8.0",
     "ember-cli-styles-reloader": "0.1.6",
     "ember-cli-uglify": "1.2.0",
     "ember-data": "1.13.9",
@@ -62,6 +65,7 @@
     "grunt-grunticon": "2.2.1",
     "liquid-fire": "0.21.2",
     "matchdep": "0.3.0",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "torii": "^0.6.1"
   }
 }

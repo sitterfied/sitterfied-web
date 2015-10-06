@@ -14,6 +14,15 @@ module.exports = {
 	// Allow access to devTools
 	ENV.exportApplicationGlobal = true;
 
+	ENV['torii'] = {
+	  providers: {
+		'facebook-oauth2': {
+		  apiKey: '509664315866025',
+		  redirectUri: 'http://dev-web.sitterfied.com:8370',
+		}
+	  }
+	};
+
 	// ember-devtools
 	// Console functions for quickly debugging the app
 	ENV['ember-devtools'] = {

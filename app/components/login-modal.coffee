@@ -4,6 +4,11 @@
 
 LoginModalComponent = LoginComponent.extend ModalDefaultsMixin,
   actions:
+    facebookLogin: ->
+      @get('session').authenticate(
+        'simple-auth-authenticator:torii', 'facebook-oauth2').then(() ->
+      )
+  
     switchToSignup: ->
       @sendAction('showSignup')
 
