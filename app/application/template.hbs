@@ -1,7 +1,16 @@
 <div class="overflow-hidden">
-
   <div>
     {{liquid-modal}}
+
+    {{#if shouldShowHeader}}
+      {{partial 'header'}}
+    {{/if}}
+
     {{outlet}}
+
+    {{#if shouldShowFooter}}
+      {{partial 'footer'}}
+      {{#back-to-top}}Top{{/back-to-top}}
+    {{/if}}
   </div>
 </div>

@@ -1,42 +1,32 @@
-{{partial 'header'}}
+<form {{action 'next' on='submit'}}>
+  <!-- container -->
+  <div class="container clear">
+    <div class="wraper text_topmarg">
 
-<form {{action 'signup' on='submit'}}>
-<!-- container -->
-<div class="container clear">
-  <div class="wraper text_topmarg">
-
-	<!-- onboarding_block -->
-	<div class="onboarding_block clear">
-	  <p class="center">
-		<img src="/assets/img/welcome.png" alt="" />
-	  </p>
-	  <p class="center">Congratulations. You just took an important first step toward babysitter nirvana.
-	  </p>
-	  <p class="center">You know a bit about us, now we’d love to hear more about you.
-	  </p>
-	  <p class="choose_parent_baby">First, are you a
-		<input type="radio" id="parent" checked name="parent_or_sitter" value="parent" />
-		<label for="parent">Parent
-		</label> or a
-		<input type="radio" id="babysitter" name="parent_or_sitter" value="sitter"/>
-		<label for="babysitter">Babysitter
-		</label>
-	  </p>
-	  <div class="button_wrap">
-		<a class="button button_small" onclick='$("form").submit()'>
-		  <span class="icon_next">&nbsp;
-		  </span>next
-		</a>
+	  <!-- onboarding_block -->
+	  <div class="onboarding_block clear">
+	    <p class="center">
+		  <img src="/assets/img/welcome.png" alt="" />
+	    </p>
+	    <p class="center">Congratulations. You just took an important first step toward babysitter nirvana.
+	    </p>
+	    <p class="center">You know a bit about us, now we’d love to hear more about you.
+	    </p>
+	    <p class="choose_parent_baby">First, are you a
+          {{radio-button name="parent_or_sitter" value="parent" label="Parent" selection=selectedValue}}
+          or a
+          {{radio-button name="parent_or_sitter" value="sitter" label="Babysitter" selection=selectedValue}}
+	    </p>
+	    <div class="button_wrap">
+		  <a class="button button_small" onclick='$("form").submit()'>
+		    <span class="icon_next">&nbsp;
+		    </span>next
+		  </a>
+	    </div>
 	  </div>
-	</div>
-	<!-- /onboarding_block -->
+	  <!-- /onboarding_block -->
 
+    </div>
   </div>
-</div>
+  <!-- /container -->
 </form>
-
-{{partial 'footer'}}
-
-<div id="fixed_tabs"></div>
-
-<div class="back-to-top" id="back-top"><a href="javascript:void(0)" class="back-to-top">Top</a></div>

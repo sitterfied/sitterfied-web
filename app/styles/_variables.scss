@@ -24,5 +24,6 @@ $screen-sizes: (xs: $sf-xsmall, sm: $sf-small, md: $sf-medium, lg: $sf-large);
 // z-index values, in increments of 100 to allow for future expansion.
 $z-index-base: 100;
 
-$liquid-overlay-z-index:                  17   * $z-index-base;
-$liquid-modal-z-index:                    17.1 * $z-index-base;
+$fancybox-overlay-z-index:				  17   * $z-index-base;
+$liquid-overlay-z-index:                  17.1 * $z-index-base;
+$liquid-modal-z-index:                    17.2 * $z-index-base;

@@ -11,34 +11,21 @@ Router.map ->
   @route 'landing', path: '/', ->
     @modal 'login-modal', LoginModalComponent.modalOptions()
 
+  # Base Routes
   @route 'home', path: '/home'
-  @route 'privacy', path: '/privacy'
-  @route 'tos', path: '/tos'
+  @route 'about'
+  @route 'privacy'
+  @route 'tos'
     
-  # Onboarding Routes
+  # Signup Routes
   @route 'signup', path: '/signup'
+  @route 'signup-parent', path: '/signup/parent'
+  @route 'signup-sitter', path: '/signup/sitter'
   
-  #@route 'search', path: '/search'
-  
-  # User Routes
-  @route 'parent', path: '/parents/:parent_id'
-#    @route 'network'
-#    @route 'profile'
-#    @route 'reviews'
-#    @route 'team'
-
-  # @resource 'sitter', path: '/:sitter_id', ->
-  #   @route 'detail'
-  #   @route 'network'
-  #   @route 'reviews'
-  #   @route 'snapshot'
-  #   @route 'profile'
-
   # # Note: The order of these routes is crucial. Profile resolver must be last
   # # so it always gets the direct top-level requests and resolves them to their
   # # appropriate profile type.
   # @route 'profile-resolver', path: '/:profile_resolver_id'
-  #
 
   # /i/ represents an internal url
   @route 'after-login', path: '/i/after-login'

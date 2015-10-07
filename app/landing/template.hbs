@@ -2,7 +2,7 @@
   <div class="landing_top_bar clear">
     <a href="#" class="landing_logo"><img src="/assets/img/logo4.png" alt="" /><br />Friend Verified. Search Simplified.</a>
     <ul>
-	  <li class="learn_more"><a href="#learn_more">How it Works</a></li>
+	  <li class="learn_more"><a {{action "learnMore"}}>How it Works</a></li>
 	  <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
 	  <li><a class="login-trigger" {{action "showLogin"}}>Log in</a></li>
 	  <li><a class="facebook" href="http://www.facebook.com/sitterfied" target="_blank">facebook</a></li>
@@ -37,7 +37,7 @@
 
     <div class="landing_bottom clear" id="learn_more" name="learn_more">
 
-	  <div class="learn_more"><a href="#learn_more">LEARN MORE</a></div>
+	  <div class="learn_more"><a {{action "learnMore"}}>LEARN MORE</a></div>
 
 	  <div class="landing_wrapper">
 	    <h2>We exist so that parents get <span>out</span> and <i>sitters</i> get jobs</h2>
@@ -106,7 +106,7 @@
 	    <h2>Help sitters. Help yourself. Help your friends.</h2>
 	    <div class="free clear">{{#link-to "signup" class="button"}}SIGN ME UP{{/link-to}}</div>
 	    <hr />
-	    <div class="more"><span><a id="back2Top">BACK TO TOP</a></span></div>
+	    {{#back-to-top wrapperClass="more"}}BACK TO TOP{{/back-to-top}}
 	  </div>
     </div>
   </div>

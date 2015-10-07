@@ -1,0 +1,334 @@
+<!-- container -->
+<div class="container clear">
+  <div class="wraper text_topmarg">
+
+	<!-- onboarding_block -->
+	<div class="onboarding_block clear">
+	  <p class="center"><img src="/assets/img/welcome.png" alt="" /></p>
+	  <div class="you_friends clear">
+		<p><span><img src="/assets/img/you.png" alt="" /></span>You</p>
+		<p><span><img src="/assets/img/friends.png" alt="" /></span>Friends</p>
+	  </div>
+	  <div class="profile_block">
+		<p>Great! Let’s get acquainted...</p>
+		<form method="post" action="#" class="form_style">
+	      <input type="hidden" name="parent_or_sitter" value="parent">
+		  <ul>
+			<li>
+	          <!--{%  if form.non_field_errors  %}-->
+              <ul>
+                {{!form.non_field_errors.as_ul}}
+              </ul>
+              <!--{%  endif  %}-->
+			  <ul>
+                <li>
+                  <span class="icon_name">&nbsp;</span>Name
+
+                  <!--{%  for error in form.first_name.errors  %}-->
+				  <div class="icon_error first_name">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.last_name.errors  %}-->
+				  <div class="icon_error last_name">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                </li>
+				<li>
+				  <p>
+					{{!form.first_name}}
+    				{{!form.last_name}}
+				  </p>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li>
+                  <span class="icon_mom_group">&nbsp;</span>Mom Group<br />
+                  <span class="small">(optional)</span>
+                  <!--{%  for error in form.sitter_group.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+
+                </li>
+				<li class="mom_group_items">
+				  <p>
+					{{!form.sitter_groups}}
+				  </p>
+				  <p>
+					<input id="newgroup" type="text">
+					<a class="button button_small button2" id="newgroup-button">Create
+					</a>
+					<span>If you can’t find your group, create it
+					</span>
+				  </p>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li>
+                  <span class="icon_friends7">&nbsp;</span>Children
+                  <!--{%  for form in formset  %}-->
+                  <!--{%  for error in form.name.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.dob.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.school.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.special_needs.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  endfor  %}-->
+                </li>
+				<!--{%  for form in formset  %}-->
+
+				<li class="form-container">
+				  <div class="child_wrap">
+					<p class="child_number">CHILD</p>
+					<!--{%  if form.name.errors  %}-->
+					<p class="small_selects error_field">
+					  <!--{%  else  %}-->
+					  <p class="small_selects">
+						<!--{%  endif  %}-->
+						{{!form.name}}
+						{{!form.dob}}
+					  </p>
+					  <p>
+						{{!form.school}}
+					  </p>
+					  <p>
+						{{!form.special_needs}}
+						<input type="checkbox" id="none" />
+					  </p>
+					  <p>
+						<input type="text" placeholder="Special Need not listed?" class="left" />
+						<a class="button button_smaller button_edit newneed-button">
+						  <span class="icon_plus">&nbsp;
+						  </span>ADD
+						</a>
+					  </p>
+                    </p>
+				  </div>
+				  <p class="add_child_block">&nbsp;
+					<br />
+					<br />
+	                <!--{%  if forloop.last  %}-->
+
+					<a class="button button_smaller button_edit add_child_trigger">
+					  <span class="icon_plus">&nbsp;
+					  </span>ADD CHILD
+					</a>
+					
+					<a class="button button_smaller button_cancel remove_child_trigger">
+					  <span class="icon_cancel">&nbsp;
+					  </span>REMOVE
+					</a>
+	                <!--{%  endif  %}-->
+				  </p>
+
+
+				  <!--{%  endfor  %}-->
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li>
+                  <span class="icon_pin3">&nbsp;</span>Home Address
+                  <!--{%  for error in form.address1.errors  %}-->
+				  <div class="icon_error address1">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.address2.errors  %}-->
+				  <div class="icon_error address2">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.city.errors  %}-->
+				  <div class="icon_error city">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.state.errors  %}-->
+				  <div class="icon_error state">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.zip.errors  %}-->
+				  <div class="icon_error zip">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                </li>
+				<li>
+
+				  <p class="address_fields">
+					{{!form.address1}}
+    				{{!form.address2}}
+	  			    {{!form.city}}
+					{{!form.state}}
+                    {{!form.zip}}
+				  </p>
+
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li>
+                  <span class="icon_iphone">&nbsp;</span>Cell Phone Number
+                  <!--{%  for error in form.cell.errors  %}-->
+				  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+
+                </li>
+				<li>
+				  <p>
+					<!--{%  for error in form.cell.errors  %}-->
+					<strong>{{!error|escape}}</strong>
+					<!--{%  endfor  %}-->
+
+					{{!form.cell}}
+				  </p>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li>
+                  <span class="icon_email">&nbsp;</span>Email Address
+                  <!--{%  for error in form.email.errors  %}-->
+                  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+				  <!--{%  endfor  %}-->
+
+                </li>
+				<li>
+				  <p>
+					{{!form.email}}
+				  </p>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+                <li id="password_state">
+                  <span class="icon_pass2">&nbsp;</span>Password
+
+                  <!--{%  for error in form.password1.errors  %}-->
+                  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                  <!--{%  for error in form.password2.errors  %}-->
+                  <div class="icon_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                </li>
+				<li class="pass">
+				  <p>
+					{{!form.password1}}
+					<strong>Confirm Password</strong>
+					{{!form.password2}}
+
+				  </p>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+				<li>
+				  <span class="icon_pic">&nbsp;</span>Profile Picture
+				  <p>Like it or not we’re visual beings and adding a photo of yourself breaks down big trust barriers. </p>
+				  <p>You’ll have the option to use your Facebook pic or upload your own. </p>
+                  <!--{%  for error in form.avatar.errors  %}-->
+                  <div class="icon_error avatar_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+				</li>
+				<li>
+				  {{!form.avatar}}
+				  <div class="add_photo">
+					<a class="add"><p>Add your photo</p></a>
+					<p class="b_styling"><a href="http://blog.sitterfied.com/post/62361055222/a-pictures-worth-a-thousand-words-so-give-your-profile" target="_blank">Click here</a> for more photo tips</p>
+				  </div>
+				  <div class="add_photo_desc">
+					<p>Use these simple guidelines to get the most out of your photo.</p>
+					<ol>
+					  <li>&nbsp;Smile <i>(really important)</i></li>
+					  <li>Just you (can include kids too!)</li>
+					  <li>Clear and Bright</li>
+					  <li>Close up</li>
+					</ol>
+				  </div>
+				</li>
+			  </ul>
+			</li>
+            <li>
+			  <ul>
+				<li>
+				  <span class="icon_pass2">&nbsp;</span>Terms of Service
+
+                  <!--{%  for error in form.tos.errors  %}-->
+                  <div class="icon_error tos_error">
+                    <p>{{!error|escape}}</p>
+                  </div>
+                  <!--{%  endfor  %}-->
+
+                </li>
+				<li>
+                  <p>
+					{{!form.tos}}
+                    <label for="id_tos">I have read and agree to the {{#link-to 'tos'}}Terms of Service.{{/link-to}}</label>
+                  </p>
+				</li>
+			  </ul>
+			</li>
+		  </ul>            
+		  {{!formset.management_form}}
+		</form>
+	  </div>
+	  <div class="button_wrap"><a {{action 'next'}} class="button button_small"><span class="icon_next">&nbsp;</span>next</a></div>
+	</div>
+	<!-- /onboarding_block -->
+
+  </div>
+</div>
+<!-- /container -->

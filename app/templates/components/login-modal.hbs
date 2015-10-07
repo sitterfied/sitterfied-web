@@ -1,49 +1,60 @@
 {{#sitterfied-modal close='closeModal'}}
-<div id="login" class="signup_login_block">
-  <form {{action 'authenticate' on='submit'}}>
-    <p>
-      <img src="/assets/img/logo2.png" alt="Sitterfied" class="logo" />
-    </p>
-	<p>
-      <a {{action "facebookLogin"}} class="facebook_signup_btn">
-        <img src="/assets/img/facebook_login.png" alt="" />
-      </a>
-    </p>
-	<div class="or">
-      <span>Or
-      </span>
+<div class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: block;">
+  <div class="fancybox-wrap fancybox-desktop fancybox-type-inline onb_final fancybox-opened" tabindex="-1" style="width: 338px; height: auto; position: absolute; top: 20px; left: 471px; opacity: 1; overflow: visible;">
+    <div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;">
+      <div class="fancybox-outer">
+        <div class="fancybox-inner" style="overflow: hidden; width: 308px; height: auto;">
+          <div id="login" class="signup_login_block">
+            <form {{action 'authenticate' on='submit'}}>
+              <p>
+                <img src="/assets/img/logo2.png" alt="Sitterfied" class="logo" />
+              </p>
+	          <p>
+                <a {{action "facebookLogin"}} class="facebook_signup_btn">
+                  <img src="/assets/img/facebook_login.png" alt="" />
+                </a>
+              </p>
+	          <div class="or">
+                <span>Or
+                </span>
+              </div>
+	          <ul>
+                {{#if errorMessage}}
+	              <li class="error_text" id="errormessage">
+		            <p>incorrect email or password</p>
+	              </li>
+                {{/if}}
+	            <li >
+                  <span class="icon_email4">&nbsp;
+                  </span>
+                  <input id="id_username" maxlength="254" name="username" placeholder="Email" type="text" class="{{if errorMessage 'error_field_login' ''}}">
+                </li>
+	            <li>
+                  <span class="icon_pass">&nbsp;
+                  </span>
+                  <input id="id_password" name="password" placeholder="Password" type="password" class="{{if errorMessage 'error_field_login' ''}}">
+                </li>
+                <li>
+                </li>
+	          </ul>
+              <p>
+                <!--<a href="#">Forgot your password?</a>-->
+              </p>
+              <p>
+                <input type="hidden" name="next" value="/" />
+                <button id="loginbtn" type="submit" class="button button_edit" disabled={{shouldDisablButton}}>
+		          LOG IN
+	            </button>
+              </p>
+            </form>
+            <p>Don’t have an account?
+              {{#link-to "signup"}}Sign up{{/link-to}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <a title="Close" class="fancybox-item fancybox-close" {{action "closeModal"}}></a>
     </div>
-	<ul>
-      {{#if errorMessage}}
-	  <li class="error_text" id="errormessage">
-		<p>incorrect email or password</p>
-	  </li>
-      {{/if}}
-	  <li >
-        <span class="icon_email4">&nbsp;
-        </span>
-        <input id="id_username" maxlength="254" name="username" placeholder="Email" type="text">
-      </li>
-	  <li>
-        <span class="icon_pass">&nbsp;
-        </span>
-        <input id="id_password" name="password" placeholder="Password" type="password">
-      </li>
-      <li>
-      </li>
-	</ul>
-    <p>
-      <!--<a href="#">Forgot your password?</a>-->
-    </p>
-    <p>
-      <input type="hidden" name="next" value="/" />
-      <button id="loginbtn" type="submit" class="button button_edit" disabled={{shouldDisablButton}}>
-		LOG IN
-	  </button>
-    </p>
-  </form>
-  <p>Don’t have an account?
-    {{#link-to "signup"}}Sign up{{/link-to}}
-  </p>
+  </div>
 </div>
 {{/sitterfied-modal}}
