@@ -1,21 +1,30 @@
 `import Ember from 'ember'`
 `import logger from 'sitterfied-web/services/logger'`
+`import createPromise from 'sitterfied-web/utils/create-promise'`
+`import StatesMixin from 'sitterfied-web/mixins/states'`
 
-LOG = logger.loggerFor('signup--parent-controller')
+LOG = logger.loggerFor('signup-parent-controller')
 
-SignupParentController = Ember.Controller.extend
-  # defaultValue: 'parent'
+SignupParentController = Ember.Controller.extend StatesMixin,
 
-  # selectedValue: Ember.computed('defaultValue',
-  #   get: ->
-  #     @get('_selectedValue') or @get('defaultValue')
-  #   set: (key, value) ->
-  #     @set('_selectedValue', value)
-  #     @get('_selectedValue') or @get('defaultValue')
-  # )
-      
+  signupIfValid: ->
+    @set 'model.formErrorMessage', ''
+    
+    if @get 'isInvalidOrSaving'
+      return @showErrorMessage()
+
+    signupPromise = @model.save().then(() ->
+      @get('session').authenticate(@get('authenticator'),
+        identification: model.get('email')
+        password: model.get('password')
+      )
+    )
+
+    @set 'signupPromise', createPromise(signupPromise)
+    signupPromise
+  
   actions:
-    next: ->
-      @transitionToRoute("signup.network")
+    signup: ->
+      @signupIfValid()
 
 `export default SignupParentController`

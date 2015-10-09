@@ -1,0 +1,70 @@
+.landing-page {
+  background: #ffffff
+}
+
+.landing-top-bar {
+  box-shadow: rgba(0, 0, 0, .30) 0px 2px 7px 0px;
+  min-height: 85px;
+  position: relative;
+  z-index: 2;
+}
+
+.landing-top-bar-logo {
+  color: #259caf;
+  display: block;
+  font: 14px 'ProximaNova';
+  left: 40px;
+  position: absolute;
+  text-align: center;
+  top: 14px;
+}
+
+.landing-top-bar-menubar {
+  float: right;
+  margin: 30px 33px 10px 0px;
+}
+  
+.landing-top-bar-menubar-item {
+  border-right:1px solid #e8e9ea;
+  float:left;
+  font:16px/25px 'ProximaNova';
+  margin-right:18px;  
+  padding-right:18px;
+}
+
+.landing-top-bar-menubar-item-target {
+  &:hover {background-position: 0 top; color: #2ca5b7;}
+  &:visited {color: #e88648}
+}
+  
+@mixin landing-top-bar-menubar-item-icon-link {
+  display: block;
+  border: none;
+  font-size: 0px;
+  height: 35px;
+  line-height: 0px;
+  margin: -5px 0 0 -5px;
+  padding-right: 13px;
+  width: 35px;
+}
+  
+.landing-top-bar-menubar-item-facebook {
+  @extend .landing-top-bar-menubar-item-target;
+  @include landing-top-bar-menubar-item-icon-link;
+  background: url(/assets/img/facebook6.png) 0 bottom no-repeat;
+  position: relative;
+}
+
+.landing-top-bar-menubar-item-tumblr {
+  @extend .landing-top-bar-menubar-item-target;
+  @include landing-top-bar-menubar-item-icon-link;
+  background: url(/assets/img/tumblr.png) 0 bottom no-repeat;
+  position: relative;
+}
+
+.landing-top-bar-menubar-item-twitter {
+  @extend .landing-top-bar-menubar-item-target;
+  @include landing-top-bar-menubar-item-icon-link;
+  background: url(/assets/img/twitter3.png) 0 bottom no-repeat;
+  position: relative;
+}

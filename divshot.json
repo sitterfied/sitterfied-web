@@ -1,0 +1,11 @@
+{
+  "name": "sitterfied-web",
+  "root": "./dist",
+  "clean_urls": true,
+  "cache_control": {},
+  "routes": {
+    "/tests": "tests/index.html",
+    "/tests/**": "tests/index.html",
+    "/**": "index.html"
+  }
+}

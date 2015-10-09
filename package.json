@@ -20,7 +20,10 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember test",
-    "test:watch": "ember test --serve --port 8380"
+    "test:watch": "ember test --serve --port 8380",
+    "divshot:development": "rm -rf ./dist && EMBER_ENV=development ember build && git rev-parse HEAD > ./dist/VERSION.txt && divshot push development",
+    "divshot:staging": "rm -rf ./dist && EMBER_ENV=staging ember build && git rev-parse HEAD > ./dist/VERSION.txt && divshot push staging",
+    "divshot:production": "rm -rf ./dist && EMBER_ENV=development ember build && git rev-parse HEAD > ./dist/VERSION.txt && divshot push production"
   },
   "devDependencies": {
     "bootstrap-sass": "3.3.4",
@@ -33,7 +36,7 @@
     "ember-cli-coffeescript": "0.11.0",
     "ember-cli-dependency-checker": "1.0.1",
     "ember-cli-deprecation-workflow": "0.1.4",
-    "ember-cli-divshot": "0.1.7",
+    "ember-cli-divshot": "^0.1.7",
     "ember-cli-fixture-loader": "0.0.3",
     "ember-cli-htmlbars": "0.7.9",
     "ember-cli-htmlbars-inline-precompile": "0.2.0",

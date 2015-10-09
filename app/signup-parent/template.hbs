@@ -11,7 +11,7 @@
 	  </div>
 	  <div class="profile_block">
 		<p>Great! Let’s get acquainted...</p>
-		<form method="post" action="#" class="form_style">
+		{{#sf-form action='signup' classNames='form_style' model=model}}
 	      <input type="hidden" name="parent_or_sitter" value="parent">
 		  <ul>
 			<li>
@@ -39,8 +39,21 @@
                 </li>
 				<li>
 				  <p>
-					{{!form.first_name}}
-    				{{!form.last_name}}
+                    {{input
+                      maxlength='30'
+                      type='text'
+                      value=model.first_name
+                      placeholder='First'
+                      autocapitalize='off'
+                      autocorrect='off'}}
+
+                    {{input
+                      maxlength='30'
+                      type='text'
+                      value=model.last_name
+                      placeholder='Last'
+                      autocapitalize='off'
+                      autocorrect='off'}}
 				  </p>
 				</li>
 			  </ul>
@@ -190,15 +203,7 @@
 
                 </li>
 				<li>
-
-				  <p class="address_fields">
-					{{!form.address1}}
-    				{{!form.address2}}
-	  			    {{!form.city}}
-					{{!form.state}}
-                    {{!form.zip}}
-				  </p>
-
+                  {{address-form model=model}}
 				</li>
 			  </ul>
 			</li>
@@ -229,17 +234,19 @@
 			  <ul>
                 <li>
                   <span class="icon_email">&nbsp;</span>Email Address
-                  <!--{%  for error in form.email.errors  %}-->
-                  <div class="icon_error">
-                    <p>{{!error|escape}}</p>
-                  </div>
-				  <!--{%  endfor  %}-->
-
                 </li>
 				<li>
+                  {{#inline-errors property='email'}}
 				  <p>
-					{{!form.email}}
+					{{input
+                      maxlength='30'
+                      type='text'
+                      value=model.email
+                      placeholder='Email'
+                      autocapitalize='off'
+                      autocorrect='off'}}
 				  </p>
+                  {{/inline-errors}}
 				</li>
 			  </ul>
 			</li>
@@ -262,12 +269,23 @@
 
                 </li>
 				<li class="pass">
-				  <p>
-					{{!form.password1}}
-					<strong>Confirm Password</strong>
-					{{!form.password2}}
-
-				  </p>
+                  {{#inline-errors property='password'}}
+					{{input
+                      maxlength=30
+                      type='password'
+                      value=model.password
+                      autocapitalize='off'
+                      autocorrect='off'}}
+                  {{/inline-errors}}
+				  <strong>Confirm Password</strong>
+                  {{#inline-errors property='passwordConfirmation'}}
+				    {{input
+                      maxlength=30
+                      type='password'
+                      value=model.passwordConfirmation
+                      autocapitalize='off'
+                      autocorrect='off'}}
+                  {{/inline-errors}}
 				</li>
 			  </ul>
 			</li>
@@ -323,9 +341,9 @@
 			</li>
 		  </ul>            
 		  {{!formset.management_form}}
-		</form>
+		{{/sf-form}}
 	  </div>
-	  <div class="button_wrap"><a {{action 'next'}} class="button button_small"><span class="icon_next">&nbsp;</span>next</a></div>
+	  <div class="button_wrap"><a {{action 'signup'}} class="button button_small"><span class="icon_next">&nbsp;</span>next</a></div>
 	</div>
 	<!-- /onboarding_block -->
 

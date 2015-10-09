@@ -5,7 +5,7 @@ PhoneTransform = DS.Transform.extend
   deserialize: (number) ->
     return formatLocal('US', number)
 
-  serializer: (number) ->
+  serialize: (number) ->
     return formatE164('US', number)
 
 `export default PhoneTransform`

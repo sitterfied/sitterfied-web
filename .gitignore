@@ -26,8 +26,12 @@ node_modules/
 # Bower folder
 bower_components/
 
+# Divshot
+.divshot-cache/
+
 # Vagrant
 .vagrant
 
 # Miscellaneous
-/.sass-cache
+/.sass-cache.divshot-cache
+

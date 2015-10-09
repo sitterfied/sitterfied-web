@@ -1,10 +1,12 @@
 `import DS from 'ember-data'`
 
+attr = DS.attr
+
 Model = DS.Model.extend
   showAllErrors: false
 
   # Fake property to handle errors on the base object
-  baseError: DS.attr('string')
+  baseError: attr 'string', ignore: true
 
   modelName: (->
     @constructor.modelName
@@ -24,8 +26,8 @@ Model = DS.Model.extend
 
   # Public: override rollback to clear state of showing all errors
   rollback: ->
-    @set('showAllErrors', false)
-    @_super(arguments...)
+    @set 'showAllErrors', false
+    @_super arguments...
 
 Model.reopenClass
   typeKeyFromToString: ->

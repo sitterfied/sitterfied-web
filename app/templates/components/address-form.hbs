@@ -1,0 +1,35 @@
+<p class="address_fields">
+  {{input
+    maxlength='255'
+    type='text'
+    value=model.address1
+    placeholder='Street Address'
+    autocapitalize='on'
+    autocorrect='off'}}
+  {{input
+    maxlength='255'
+    type='text'
+    value=model.address2
+    placeholder='Apt/Suite'
+    autocapitalize='on'
+    autocorrect='off'}}
+  {{input
+    maxlength='50'
+    type='text'
+    value=model.city
+    placeholder='City'
+    autocapitalize='on'
+    autocorrect='off'}}
+  {{select-2
+    content=us_states
+    value=selectedState
+    placeholder='State'}}
+  {{input
+    class='small'
+    maxlength='9'
+    type='text'
+    value=model.zip
+    placeholder='Zip Code'
+    autocapitalize='on'
+    autocorrect='off'}}
+</p>

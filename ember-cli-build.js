@@ -47,8 +47,8 @@ module.exports = function(defaults) {
   app.import('bower_components/phoneformat/phoneformat.min.js');
   app.import('bower_components/purl/purl.js');
 
-  app.import('bower_components/select2/dist/js/select2.js');
-  app.import('bower_components/select2/dist/css/select2.css');
+  app.import('bower_components/select2/select2.min.js');
+  app.import('bower_components/select2/select2.css');
 
 
   // Use `app.import` to add additional libraries to the generated

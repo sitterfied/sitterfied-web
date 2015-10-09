@@ -3,7 +3,7 @@
 
 LOG = logger.loggerFor('application-serializer')
 
-ApplicationSerializer = DS.ActiveModelSerializer.extend
+ApplicationSerializer = DS.RESTSerializer.extend
   concatenatedProperties: ['unusedKeys']
   unusedKeys: [
     'username'
@@ -13,5 +13,16 @@ ApplicationSerializer = DS.ActiveModelSerializer.extend
     newPayload = {}
     newPayload[primaryType.modelName] = payload
     @_super(store, primaryType, newPayload, recordId, requestType)
+
+  serializeIntoHash: (data, type, record, options) ->
+    ###
+    Ember Data wraps records in an object so this override removes the wrapper
+    
+    ###
+    @_super(data, type, record, options)
+    modelName = type.modelName.underscore()
+    for key, value of data[modelName]
+      data[key] = value
+    delete data[modelName]
 
 `export default ApplicationSerializer`
